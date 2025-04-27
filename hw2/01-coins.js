@@ -23,7 +23,13 @@ function calculateChange(dollars){
 
         values.nickels = Math.floor(cents / 5);
         cents %= 5;
-
+    
+        values.dimes = Math.floor(cents / 10);
+        cents %= 10;
+    
+        values.nickels = Math.floor(cents / 5);
+        cents %= 5;
+    
         values.pennies = cents;
 
         return values
@@ -31,7 +37,6 @@ function calculateChange(dollars){
         return "Error: the number is too large"
     }
 }
-
 
 // Sample test cases
 console.log(calculateChange(4.62));
