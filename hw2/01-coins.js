@@ -1,6 +1,7 @@
 /** Exercise 01 - Coins **/
 
 // Add your function here 
+
 function calculateChange(dollars){
     if(dollars <= 100){
         let cents = Math.round(dollars * 100)
@@ -37,6 +38,7 @@ function calculateChange(dollars){
         return "Error: the number is too large"
     }
 }
+
 
 // Sample test cases
 console.log(calculateChange(4.62));

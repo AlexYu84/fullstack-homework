@@ -5,7 +5,6 @@ const port = process.env.PORT || 5001;
 // http://localhost:5001/form should return a form with input elements for username, email, and submit button
 
 // http://localhost:5001/submit should return all the data the user entered
-
 app.use(express.urlencoded({ extended: true }));
 
 app.get('/form', (req, res) => {
@@ -49,3 +48,4 @@ app.post('/submit', (req, res) => {
 app.listen(port, () => {
     console.log(`Server running at http://localhost:${port}`);
   });
+
