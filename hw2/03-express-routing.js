@@ -29,6 +29,41 @@ app.get('/', (req, res) => {
 
 // Add your code here
 
+app.get('/welcome', (req, res) =>{
+  res.status(200);
+  res.set({ 'Content-Type': 'text/html' });
+  res.send('<h1>Welcome to my server.</h1>');
+});
+
+app.get('/redirect', (req, res) =>{
+  res.status(302, '/redirected')
+});
+
+app.get('/redirected', (req, res) =>{
+  res.status(200);
+  res.set({ 'Content-Type': 'text/html' });
+  res.send('<h1>You have been redirected :)</h1>');
+});
+
+app.get('/cache', (req, res) => {
+  res.status(200);
+  res.set({'Content-Type': 'text/html', 'Cache-Control': 'public, max-age=86400'});
+  res.send('This resource was cached.');
+});
+
+app.get('/cookie', (req, res) =>{
+   res.status(200);
+   res.cookie('hello', 'world');
+   res.set({'Content-Type': 'text/html'});
+   res.send('cookies... yummm');
+});
+
+app.get('*', (req, res) => {
+  res.status(404);
+  res.set({ 'Content-Type': 'text/html' });
+  res.send('404 - Page not found. ');
+});
+
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
 });
